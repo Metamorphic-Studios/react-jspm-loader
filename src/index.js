@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import script from 'scriptjs';
 import PropTypes from 'prop-types';
+var Plugin = require('./test-plugin');
 // load remote component and return it when ready
 // display current children while loading
 class JsPmLoader extends Component {
@@ -16,8 +17,12 @@ class JsPmLoader extends Component {
     // async load of remote UMD component
     script('https://jspm.io/system@0.19.js', () => {
       global.System.config({
+         map: {
+            plugin: './test-plugin' 
+         },
          meta: {
-            '*.js': {
+            'npm:*': {
+               loader: 'plugin',
                babelOptions: {
                   plugins: ['babel-plugin-transform-react-remove-prop-types']
                }
