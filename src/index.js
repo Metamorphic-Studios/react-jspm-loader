@@ -15,7 +15,18 @@ class JsPmLoader extends Component {
   componentDidMount() {
     // async load of remote UMD component
     script('https://jspm.io/system@0.19.js', () => {
+      global.System.config({
+         meta: {
+            '*.js': {
+               babelOptions: {
+                  plugins: ['babel-plugin-transform-react-remove-prop-types']
+               }
+            }
+         },
+         transpiler: 'plugin-babel'
+      });
       global.System.import(this.props.module).then(Component => {
+         console.log(Component);
         this.setState({
           error: null,
           Component: Component

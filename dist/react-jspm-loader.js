@@ -111,7 +111,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      // async load of remote UMD component
 	      (0, _scriptjs2.default)('https://jspm.io/system@0.19.js', function () {
+	        global.System.config({
+	          meta: {
+	            '*.js': {
+	              babelOptions: {
+	                plugins: ['babel-plugin-transform-react-remove-prop-types']
+	              }
+	            }
+	          },
+	          transpiler: 'plugin-babel'
+	        });
 	        global.System.import(_this2.props.module).then(function (Component) {
+	          console.log(Component);
 	          _this2.setState({
 	            error: null,
 	            Component: Component
