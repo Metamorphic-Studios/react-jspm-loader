@@ -18,12 +18,14 @@ class JsPmLoader extends Component {
     script('https://jspm.io/system@0.19.js', () => {
       global.System.config({
          transpiler: 'plugin-babel',
-         defaultJSExtensions: true,
+         defaultJSExtensions: false,
          map: {
               'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
+               'plugin-test': './test-plugin.js'
          },
          meta: {
             '*.js': {
+               loader: 'plugin-test',
                babelOptions: {
                   plugins: [
                      'babel-plugin-transform-react-remove-prop-types'
