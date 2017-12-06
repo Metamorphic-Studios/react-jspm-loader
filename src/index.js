@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import script from 'scriptjs';
-
+import PropTypes from 'prop-types';
 // load remote component and return it when ready
 // display current children while loading
 class JsPmLoader extends Component {
@@ -9,8 +9,8 @@ class JsPmLoader extends Component {
     error: null
   }
   static propTypes = {
-    module: React.PropTypes.string.isRequired,
-    props: React.PropTypes.object
+    module: PropTypes.string.isRequired,
+    props: PropTypes.object
   }
   componentDidMount() {
     // async load of remote UMD component
