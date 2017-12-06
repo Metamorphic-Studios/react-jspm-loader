@@ -26,8 +26,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var Plugin = require('./test-plugin');
 // load remote component and return it when ready
 // display current children while loading
+
 var JsPmLoader = function (_Component) {
   _inherits(JsPmLoader, _Component);
 
@@ -55,7 +57,28 @@ var JsPmLoader = function (_Component) {
 
       // async load of remote UMD component
       (0, _scriptjs2.default)('https://jspm.io/system@0.19.js', function () {
+        global.System.config({
+          transpiler: 'plugin-babel',
+          defaultJSExtensions: false,
+          map: {
+            'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
+            'plugin-test': './test-plugin.js'
+          },
+          meta: {
+            '*.js': {
+              loader: 'plugin-test',
+              babelOptions: {
+                plugins: ['babel-plugin-transform-react-remove-prop-types']
+              }
+            }
+          },
+          babelOptions: {
+            plugins: ['babel-plugin-transform-react-remove-prop-types']
+          }
+
+        });
         global.System.import(_this2.props.module).then(function (Component) {
+          console.log(Component);
           _this2.setState({
             error: null,
             Component: Component
