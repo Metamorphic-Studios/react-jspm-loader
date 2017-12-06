@@ -115,12 +115,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      (0, _scriptjs2.default)('https://jspm.io/system@0.19.js', function () {
 	        global.System.config({
 	          transpiler: 'plugin-babel',
-	          defaultJSExtensions: true,
+	          defaultJSExtensions: false,
 	          map: {
-	            'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js'
+	            'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
+	            'plugin-test': './test-plugin.js'
 	          },
 	          meta: {
 	            '*.js': {
+	              loader: 'plugin-test',
 	              babelOptions: {
 	                plugins: ['babel-plugin-transform-react-remove-prop-types']
 	              }
