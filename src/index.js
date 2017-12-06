@@ -17,18 +17,26 @@ class JsPmLoader extends Component {
     // async load of remote UMD component
     script('https://jspm.io/system@0.19.js', () => {
       global.System.config({
+         transpiler: 'plugin-babel',
+         defaultJSExtensions: true,
          map: {
-            plugin: './test-plugin' 
+              'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
          },
          meta: {
-            'npm:*': {
-               loader: 'plugin',
+            '*.js': {
                babelOptions: {
-                  plugins: ['babel-plugin-transform-react-remove-prop-types']
+                  plugins: [
+                     'babel-plugin-transform-react-remove-prop-types'
+                  ]
                }
             }
          },
-         transpiler: 'plugin-babel'
+         babelOptions: {
+            plugins: [
+               'babel-plugin-transform-react-remove-prop-types'
+            ]
+         }
+        
       });
       global.System.import(this.props.module).then(Component => {
          console.log(Component);

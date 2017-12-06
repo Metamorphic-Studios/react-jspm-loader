@@ -82,8 +82,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var Plugin = __webpack_require__(13);
 	// load remote component and return it when ready
 	// display current children while loading
+	
 	var JsPmLoader = function (_Component) {
 	  _inherits(JsPmLoader, _Component);
 	
@@ -112,6 +114,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // async load of remote UMD component
 	      (0, _scriptjs2.default)('https://jspm.io/system@0.19.js', function () {
 	        global.System.config({
+	          transpiler: 'plugin-babel',
+	          defaultJSExtensions: true,
+	          map: {
+	            'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js'
+	          },
 	          meta: {
 	            '*.js': {
 	              babelOptions: {
@@ -119,7 +126,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	              }
 	            }
 	          },
-	          transpiler: 'plugin-babel'
+	          babelOptions: {
+	            plugins: ['babel-plugin-transform-react-remove-prop-types']
+	          }
+	
 	        });
 	        global.System.import(_this2.props.module).then(function (Component) {
 	          console.log(Component);
@@ -1484,6 +1494,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return ReactPropTypes;
 	};
 
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	exports.translate = function (load) {
+	   console.log(load.source);
+	   return load.source;
+	};
 
 /***/ })
 /******/ ])

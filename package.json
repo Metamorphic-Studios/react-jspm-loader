@@ -104,7 +104,8 @@
   ],
   "dependencies": {
     "prop-types": "^15.6.0",
-    "scriptjs": "^2.5.8"
+    "scriptjs": "^2.5.8",
+    "systemjs-plugin-babel": "0.0.25"
   },
   "jspm": {
     "dependencies": {
