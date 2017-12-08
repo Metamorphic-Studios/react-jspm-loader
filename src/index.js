@@ -65,7 +65,7 @@ class JsPmLoader extends Component {
          },
          transpiler: 'plugin-babel',
          paths: {
-            'prop-types-cdn': 'https://unpkg.com/prop-types/prop-types.min.js',
+            'npm:prop-types*': 'https://unpkg.com/prop-types/prop-types.min.js',
             'react-cdn': 'https://unpkg.com/react@15.5.0/dist/react.min.js',
             'unpkg:*' : '//unpkg.com/*',
             'npm:react': 'https://unpkg.com/react@15.5.0/dist/react.min.js',
