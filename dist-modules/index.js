@@ -66,11 +66,7 @@ var JsPmLoader = function (_Component) {
           paths: {
             'react-cdn': 'https://fb.me/react-15.1.0.min.js'
           },
-          meta: {
-            'react-cdn': {
-              'build': false
-            }
-          }
+          meta: {}
         });
         global.System.import(_this2.props.module).then(function (Component) {
           console.log(Component);

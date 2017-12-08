@@ -26,9 +26,6 @@ class JsPmLoader extends Component {
             'react-cdn': 'https://fb.me/react-15.1.0.min.js'
          },
          meta: {
-            'react-cdn': {
-               'build': false
-            }
          } 
       });
       global.System.import(this.props.module).then(Component => {
