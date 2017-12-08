@@ -94,7 +94,7 @@ var JsPmLoader = function (_Component) {
                   plugins: ['plugin-babel-remove-props']
                },
                packages: {
-                  'https://npm.jspm.io/': { defaultExtension: false },
+                  'https://npm.jspm.io/': { defaultExtension: 'js' },
                   'https://cdn.rawgit.com/*': { defaultExtension: false },
                   'https://unpkg.com/': { defaultExtension: false }
                },
