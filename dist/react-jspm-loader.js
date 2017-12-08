@@ -150,6 +150,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	              Component: Component.default
 	            });
 	            console.log(Component.default.propTypes);
+	          } else if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object') {
+	            console.log(Component);
 	          } else {
 	            _this2.setState({
 	              error: null,

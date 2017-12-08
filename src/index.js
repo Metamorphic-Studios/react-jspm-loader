@@ -54,6 +54,8 @@ class JsPmLoader extends Component {
                Component: Component.default
             });
             console.log(Component.default.propTypes);
+         }else if(typeof(Component) == 'object'){
+            console.log(Component);  
          }else{
            this.setState({
              error: null,
