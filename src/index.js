@@ -57,7 +57,7 @@ class JsPmLoader extends Component {
             'https://unpkg.com/' : { defaultExtension: false },
          },
          map: {
-            "css": "github:systemjs/plugin-css",
+            "css": "unpkg:systemjs-plugin-css/css.js",
             "react": "react-cdn",
             "prop-types": 'prop-types-cdn',
             'plugin-babel': 'unpkg:systemjs-plugin-babel@0/plugin-babel.js',
