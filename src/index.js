@@ -40,9 +40,9 @@ class JsPmLoader extends Component {
          },
          transpiler: 'plugin-babel',
          paths: {
-            'react-cdn': 'https://fb.me/react-15.1.0.min.js',
+            'react-cdn': 'https://unpkg.com/react@15.1.0/dist/react.min.js',
             'unpkg:*' : '//unpkg.com/*',
-            'npm:react': 'https://fb.me/react-15.1.0.min.js'
+            'npm:react': 'https://unpkg.com/react@15.1.0/dist/react.min.js'
          },
          meta: {
          } 
