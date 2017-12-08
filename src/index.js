@@ -43,6 +43,7 @@ class JsPmLoader extends Component {
     script('https://jspm.io/system.js', () => {
       global.System.config({
          defaultExtensions: false,
+         defaultJSExtensions: true,
          baseURL: 'https://npm.jspm.io',
          babelOptions: {
             blacklist: [],
@@ -54,7 +55,7 @@ class JsPmLoader extends Component {
             ]
          },
          packages: {
-            'https://npm.jspm.io/' : { defaultExtension: 'js' },
+            'https://npm.jspm.io/' : { defaultExtension: false },
             'https://cdn.rawgit.com/*' : { defaultExtension: false },
             'https://unpkg.com/' : { defaultExtension: false },
          },

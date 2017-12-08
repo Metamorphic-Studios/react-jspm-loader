@@ -141,6 +141,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         (0, _scriptjs2.default)('https://jspm.io/system.js', function () {
 	            global.System.config({
 	               defaultExtensions: false,
+	               defaultJSExtensions: true,
 	               baseURL: 'https://npm.jspm.io',
 	               babelOptions: {
 	                  blacklist: [],
@@ -150,7 +151,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  plugins: ['plugin-babel-remove-props']
 	               },
 	               packages: {
-	                  'https://npm.jspm.io/': { defaultExtension: 'js' },
+	                  'https://npm.jspm.io/': { defaultExtension: false },
 	                  'https://cdn.rawgit.com/*': { defaultExtension: false },
 	                  'https://unpkg.com/': { defaultExtension: false }
 	               },
