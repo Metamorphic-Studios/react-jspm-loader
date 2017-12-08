@@ -82,7 +82,8 @@ var JsPmLoader = function (_Component) {
           paths: {
             'react-cdn': 'https://unpkg.com/react@15.1.0/dist/react.min.js',
             'unpkg:*': '//unpkg.com/*',
-            'npm:react': 'https://unpkg.com/react@15.1.0/dist/react.min.js'
+            'npm:react': 'https://unpkg.com/react@15.1.0/dist/react.min.js',
+            'https://registry.jspm.io/*': '//npm.jspm.io/*'
           },
           meta: {}
         });
