@@ -60,6 +60,7 @@ var JsPmLoader = function (_Component) {
       // async load of remote UMD component
       (0, _scriptjs2.default)('https://jspm.io/system.js', function () {
         global.System.config({
+          baseURL: 'https://npm.jspm.io',
           babelOptions: {
             blacklist: [],
             sourceMaps: false,
@@ -95,6 +96,7 @@ var JsPmLoader = function (_Component) {
             });
             console.log(Component.default.propTypes);
           } else if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object') {
+            //Submodules
             console.log(Component);
           } else {
             _this2.setState({

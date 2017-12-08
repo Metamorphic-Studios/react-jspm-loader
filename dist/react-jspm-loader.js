@@ -116,6 +116,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // async load of remote UMD component
 	      (0, _scriptjs2.default)('https://jspm.io/system.js', function () {
 	        global.System.config({
+	          baseURL: 'https://npm.jspm.io',
 	          babelOptions: {
 	            blacklist: [],
 	            sourceMaps: false,
@@ -151,6 +152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            });
 	            console.log(Component.default.propTypes);
 	          } else if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object') {
+	            //Submodules
 	            console.log(Component);
 	          } else {
 	            _this2.setState({

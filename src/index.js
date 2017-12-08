@@ -17,6 +17,7 @@ class JsPmLoader extends Component {
     // async load of remote UMD component
     script('https://jspm.io/system.js', () => {
       global.System.config({
+         baseURL: 'https://npm.jspm.io',
          babelOptions: {
             blacklist: [],
             sourceMaps: false,
@@ -55,6 +56,7 @@ class JsPmLoader extends Component {
             });
             console.log(Component.default.propTypes);
          }else if(typeof(Component) == 'object'){
+            //Submodules
             console.log(Component);  
          }else{
            this.setState({
