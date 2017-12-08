@@ -194,7 +194,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (this.state.Component) {
+	      if (this.state.Component && _typeof(this.state.component) !== 'object') {
 	        return _react2.default.createElement(this.state.Component, this.props.props || {});
 	      } else if (this.state.error) {
 	        return _react2.default.createElement(

@@ -98,7 +98,7 @@ class JsPmLoader extends Component {
   }
 
   render() {
-    if (this.state.Component) {
+    if (this.state.Component && typeof(this.state.component) !== 'object') {
       return <this.state.Component {...this.props.props || {} } />
     } else if (this.state.error) {
       return <div>{ this.state.error }</div>
