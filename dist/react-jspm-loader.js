@@ -155,7 +155,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	               map: {
 	                  "css": "unpkg:systemjs-plugin-css/css.js",
 	                  "react": "react-cdn",
-	                  "prop-types": 'prop-types-cdn',
+	                  "prop-types": 'unpkg:prop-types',
 	                  'plugin-babel': 'unpkg:systemjs-plugin-babel@0/plugin-babel.js',
 	                  'systemjs-babel-build': 'unpkg:systemjs-plugin-babel@0/systemjs-babel-browser.js',
 	                  'plugin-babel-remove-props': 'unpkg:babel-plugin-transform-react-remove-prop-types'
