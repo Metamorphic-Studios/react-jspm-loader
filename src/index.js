@@ -55,6 +55,7 @@ class JsPmLoader extends Component {
             ]
          },
          packages: {
+            '*npm.jspm.io/*.css': {defaultExtension: 'css'},
             'https://npm.jspm.io/' : { defaultExtension: false },
             'https://cdn.rawgit.com/*' : { defaultExtension: false },
             'https://unpkg.com/' : { defaultExtension: false },
