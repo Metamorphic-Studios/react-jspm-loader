@@ -77,10 +77,12 @@ class JsPmLoader extends Component {
       global.System.import(this.props.module).then(Component => {
          var c = this._parseComponent(Component);
          if(c.Component){
-            this.setState({
-               error: null,
-               Component: c.Component
-            });
+            if(typeof(c.Component) !== 'object'){
+               this.setState({
+                  error: null,
+                  Component: c.Component
+               });
+            }
 
             if(this.props.onLoad){
                this.props.onLoad(c);
