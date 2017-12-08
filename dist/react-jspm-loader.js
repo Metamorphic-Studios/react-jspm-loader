@@ -112,7 +112,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this2 = this;
 	
 	      // async load of remote UMD component
-	      (0, _scriptjs2.default)('https://jspm.io/system@0.19.js', function () {
+	      (0, _scriptjs2.default)('https://jspm.io/system@0.20.js', function () {
 	        global.System.config({
 	          transpiler: 'plugin-babel',
 	          babelOptions: {
