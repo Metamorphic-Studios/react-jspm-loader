@@ -87,7 +87,7 @@ var JsPmLoader = function (_Component) {
           meta: {}
         });
         global.System.import(_this2.props.module).then(function (Component) {
-          console.log(typeof Component === 'undefined' ? 'undefined' : _typeof(Component), Component.props, Component);
+          console.log(typeof Component === 'undefined' ? 'undefined' : _typeof(Component), Component.propTypes, Component);
           _this2.setState({
             error: null,
             Component: Component

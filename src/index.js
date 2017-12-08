@@ -47,7 +47,7 @@ class JsPmLoader extends Component {
          } 
       });
       global.System.import(this.props.module).then(Component => {
-         console.log(typeof(Component), Component.props, Component);
+         console.log(typeof(Component), Component.propTypes, Component);
         this.setState({
           error: null,
           Component: Component
