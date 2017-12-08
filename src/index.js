@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import script from 'scriptjs';
 import PropTypes from 'prop-types';
-var conf = require('./conf');
 // load remote component and return it when ready
 // display current children while loading
 class JsPmLoader extends Component {
