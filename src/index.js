@@ -49,12 +49,14 @@ class JsPmLoader extends Component {
          } 
       });
       global.System.import(this.props.module).then(Component => {
+         var props = {};
+
          if(typeof(Component) == 'object' && Component.default){
             this.setState({
                error: null,
                Component: Component.default
             });
-            console.log(Component.default.propTypes);
+            props = Component.default.propTypes;
          }else if(typeof(Component) == 'object'){
             //Submodules
             console.log(Component);  
@@ -63,8 +65,11 @@ class JsPmLoader extends Component {
              error: null,
              Component: Component
            });
+            props = Component.propTypes;
+         }
 
-            console.log(Component.propTypes);
+         for(var k in props){
+            console.log(k, props[k].isRequired());
          }
       }).catch(e => {
         const message = `Error loading ${this.props.module} : ${e}`;

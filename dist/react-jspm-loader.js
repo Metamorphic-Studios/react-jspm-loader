@@ -145,12 +145,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	          meta: {}
 	        });
 	        global.System.import(_this2.props.module).then(function (Component) {
+	          var props = {};
+	
 	          if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object' && Component.default) {
 	            _this2.setState({
 	              error: null,
 	              Component: Component.default
 	            });
-	            console.log(Component.default.propTypes);
+	            props = Component.default.propTypes;
 	          } else if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object') {
 	            //Submodules
 	            console.log(Component);
@@ -159,8 +161,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	              error: null,
 	              Component: Component
 	            });
+	            props = Component.propTypes;
+	          }
 	
-	            console.log(Component.propTypes);
+	          for (var k in props) {
+	            console.log(k, props[k].isRequired());
 	          }
 	        }).catch(function (e) {
 	          var message = 'Error loading ' + _this2.props.module + ' : ' + e;
