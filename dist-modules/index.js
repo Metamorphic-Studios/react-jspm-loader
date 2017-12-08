@@ -97,6 +97,7 @@ var JsPmLoader = function (_Component) {
                   'https://unpkg.com/': { defaultExtension: false }
                },
                map: {
+                  "css": "github:systemjs/plugin-css",
                   "react": "react-cdn",
                   "prop-types": 'prop-types-cdn',
                   'plugin-babel': 'unpkg:systemjs-plugin-babel@0/plugin-babel.js',
@@ -112,10 +113,13 @@ var JsPmLoader = function (_Component) {
                   'https://registry.jspm.io/*': '//npm.jspm.io/*',
                   'npm:react@16.0eta.*': 'https://unpkg.com/react@16.2.0/cjs/react.production.min.js'
                },
-               meta: {}
+               meta: {
+                  '*.css': { loader: 'css' }
+               }
             });
             global.System.import(_this2.props.module).then(function (Component) {
                var c = _this2._parseComponent(Component);
+               console.log(_this2.props.module);
                if (c.Component) {
                   if (_typeof(c.Component) !== 'object') {
                      _this2.setState({
