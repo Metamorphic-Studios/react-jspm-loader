@@ -149,7 +149,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  plugins: ['plugin-babel-remove-props']
 	               },
 	               packages: {
-	                  'https://npm.jspm.io/': { defaultExtension: '.js' },
+	                  'https://npm.jspm.io/': { defaultExtension: 'js' },
 	                  'https://cdn.rawgit.com/*': { defaultExtension: false },
 	                  'https://unpkg.com/': { defaultExtension: false }
 	               },
