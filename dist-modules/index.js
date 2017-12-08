@@ -88,11 +88,16 @@ var JsPmLoader = function (_Component) {
           meta: {}
         });
         global.System.import(_this2.props.module).then(function (Component) {
-          console.log(typeof Component === 'undefined' ? 'undefined' : _typeof(Component), Component.propTypes, Component);
-          _this2.setState({
-            error: null,
-            Component: Component
-          });
+          if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object') {
+            for (var k in Component) {
+              console.log("Component key ", k);
+            }
+          } else {
+            _this2.setState({
+              error: null,
+              Component: Component
+            });
+          }
         }).catch(function (e) {
           var message = 'Error loading ' + _this2.props.module + ' : ' + e;
           console.error(message);

@@ -48,11 +48,16 @@ class JsPmLoader extends Component {
          } 
       });
       global.System.import(this.props.module).then(Component => {
-         console.log(typeof(Component), Component.propTypes, Component);
-        this.setState({
-          error: null,
-          Component: Component
-        });
+         if(typeof(Component) == 'object'){
+            for(var k in Component){
+               console.log("Component key ", k);
+            }
+         }else{
+           this.setState({
+             error: null,
+             Component: Component
+           });
+         }
       }).catch(e => {
         const message = `Error loading ${this.props.module} : ${e}`;
         console.error(message);
