@@ -117,21 +117,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	          transpiler: 'plugin-babel',
 	          defaultJSExtensions: false,
 	          map: {
-	            'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
-	            'plugin-test': './test-plugin.js'
+	            "react": "react-cdn"
+	          },
+	          paths: {
+	            'react-cdn': 'https://fb.me/react-15.1.0.min.js'
 	          },
 	          meta: {
-	            '*.js': {
-	              loader: 'plugin-test',
-	              babelOptions: {
-	                plugins: ['babel-plugin-transform-react-remove-prop-types']
-	              }
+	            'react-cdn': {
+	              'build': false
 	            }
-	          },
-	          babelOptions: {
-	            plugins: ['babel-plugin-transform-react-remove-prop-types']
 	          }
-	
 	        });
 	        global.System.import(_this2.props.module).then(function (Component) {
 	          console.log(Component);
