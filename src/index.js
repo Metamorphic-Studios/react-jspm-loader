@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import script from 'scriptjs';
 import PropTypes from 'prop-types';
-var Plugin = require('./test-plugin');
+var conf = require('./conf');
 // load remote component and return it when ready
 // display current children while loading
 class JsPmLoader extends Component {
@@ -13,6 +13,32 @@ class JsPmLoader extends Component {
     module: PropTypes.string.isRequired,
     props: PropTypes.object
   }
+
+   _parseComponent(Component){
+      //Identify component props
+		var props = {};
+		var err = null;
+		var cmp = null;
+		if(typeof(Component) == 'object' && Component.default){
+			cmp = Component.default;
+			props = cmp.propTypes;
+		}else if(typeof(Component) == 'object'){
+			//Submodules
+			console.log(Component);  
+		}else{
+			cmp = Component;
+			props = cmp.propTypes;
+		}
+		
+		var _props = [];
+
+		for(var k in props){
+		   _props.push(k);
+		}
+
+      return { Component: cmp, props: _props, error: err};
+   }
+  
   componentDidMount() {
     // async load of remote UMD component
     script('https://jspm.io/system.js', () => {
@@ -49,27 +75,16 @@ class JsPmLoader extends Component {
          } 
       });
       global.System.import(this.props.module).then(Component => {
-         var props = {};
-
-         if(typeof(Component) == 'object' && Component.default){
+         var c = this._parseComponent(Component);
+         if(c.Component){
             this.setState({
                error: null,
-               Component: Component.default
+               Component: c.Component
             });
-            props = Component.default.propTypes;
-         }else if(typeof(Component) == 'object'){
-            //Submodules
-            console.log(Component);  
-         }else{
-           this.setState({
-             error: null,
-             Component: Component
-           });
-            props = Component.propTypes;
-         }
 
-         for(var k in props){
-            console.log(k, props[k]);
+            if(this.props.onLoad){
+               this.props.onLoad(c);
+            }
          }
       }).catch(e => {
         const message = `Error loading ${this.props.module} : ${e}`;

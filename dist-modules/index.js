@@ -28,7 +28,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Plugin = require('./test-plugin');
+var conf = require('./conf');
 // load remote component and return it when ready
 // display current children while loading
 
@@ -53,6 +53,32 @@ var JsPmLoader = function (_Component) {
   }
 
   _createClass(JsPmLoader, [{
+    key: '_parseComponent',
+    value: function _parseComponent(Component) {
+      //Identify component props
+      var props = {};
+      var err = null;
+      var cmp = null;
+      if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object' && Component.default) {
+        cmp = Component.default;
+        props = cmp.propTypes;
+      } else if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object') {
+        //Submodules
+        console.log(Component);
+      } else {
+        cmp = Component;
+        props = cmp.propTypes;
+      }
+
+      var _props = [];
+
+      for (var k in props) {
+        _props.push(k);
+      }
+
+      return { Component: cmp, props: _props, error: err };
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
@@ -89,27 +115,16 @@ var JsPmLoader = function (_Component) {
           meta: {}
         });
         global.System.import(_this2.props.module).then(function (Component) {
-          var props = {};
-
-          if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object' && Component.default) {
+          var c = _this2._parseComponent(Component);
+          if (c.Component) {
             _this2.setState({
               error: null,
-              Component: Component.default
+              Component: c.Component
             });
-            props = Component.default.propTypes;
-          } else if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object') {
-            //Submodules
-            console.log(Component);
-          } else {
-            _this2.setState({
-              error: null,
-              Component: Component
-            });
-            props = Component.propTypes;
-          }
 
-          for (var k in props) {
-            console.log(k, props[k]);
+            if (_this2.props.onLoad) {
+              _this2.props.onLoad(c);
+            }
           }
         }).catch(function (e) {
           var message = 'Error loading ' + _this2.props.module + ' : ' + e;
