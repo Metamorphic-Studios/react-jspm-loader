@@ -53,12 +53,14 @@ class JsPmLoader extends Component {
                error: null,
                Component: Component.default
             });
-            console.log(Component.default);
+            console.log(Component.default.propTypes);
          }else{
            this.setState({
              error: null,
              Component: Component
            });
+
+            console.log(Component.propTypes);
          }
       }).catch(e => {
         const message = `Error loading ${this.props.module} : ${e}`;

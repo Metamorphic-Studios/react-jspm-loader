@@ -149,12 +149,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	              error: null,
 	              Component: Component.default
 	            });
-	            console.log(Component.default);
+	            console.log(Component.default.propTypes);
 	          } else {
 	            _this2.setState({
 	              error: null,
 	              Component: Component
 	            });
+	
+	            console.log(Component.propTypes);
 	          }
 	        }).catch(function (e) {
 	          var message = 'Error loading ' + _this2.props.module + ' : ' + e;
