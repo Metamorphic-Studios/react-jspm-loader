@@ -115,18 +115,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	      (0, _scriptjs2.default)('https://jspm.io/system@0.19.js', function () {
 	        global.System.config({
 	          transpiler: 'plugin-babel',
-	          defaultJSExtensions: false,
+	          babelOptions: {
+	            sourceMaps: false,
+	            stage0: true,
+	            react: true
+	          },
+	          packages: {
+	            'https://npm.jspm.io/': { defaultExtension: 'js' },
+	            'https://cdn.rawgit.com/*': { defaultExtension: false },
+	            'https://unpkg.com/': { defaultExtension: false }
+	          },
 	          map: {
-	            "react": "react-cdn"
+	            "react": "react-cdn",
+	            'plugin-babel': 'unpkg:systemjs-plugin-babel@0/plugin-babel.js',
+	            'systemjs-babel-build': 'unpkg:systemjs-plugin-babel@0/systemjs-babel-browser.js'
 	          },
 	          paths: {
-	            'react-cdn': 'https://fb.me/react-15.1.0.min.js'
+	            'react-cdn': 'https://fb.me/react-15.1.0.min.js',
+	            'unpkg:*': '//unpkg.com/*'
 	          },
-	          meta: {
-	            'react-cdn': {
-	              'build': false
-	            }
-	          }
+	          meta: {}
 	        });
 	        global.System.import(_this2.props.module).then(function (Component) {
 	          console.log(Component);
