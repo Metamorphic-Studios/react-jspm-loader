@@ -57,6 +57,7 @@ class JsPmLoader extends Component {
             'https://unpkg.com/' : { defaultExtension: false },
          },
          map: {
+            "css": "github:systemjs/plugin-css",
             "react": "react-cdn",
             "prop-types": 'prop-types-cdn',
             'plugin-babel': 'unpkg:systemjs-plugin-babel@0/plugin-babel.js',
@@ -73,6 +74,7 @@ class JsPmLoader extends Component {
             'npm:react@16.0eta.*': 'https://unpkg.com/react@16.2.0/cjs/react.production.min.js'
          },
          meta: {
+          '*.css': {loader: 'css'}
          } 
       });
       global.System.import(this.props.module).then(Component => {
