@@ -97,7 +97,7 @@ var JsPmLoader = function (_Component) {
                   'https://unpkg.com/': { defaultExtension: false }
                },
                map: {
-                  "css": "github:systemjs/plugin-css",
+                  "css": "unpkg:systemjs-plugin-css/css.js",
                   "react": "react-cdn",
                   "prop-types": 'prop-types-cdn',
                   'plugin-babel': 'unpkg:systemjs-plugin-babel@0/plugin-babel.js',
@@ -119,7 +119,6 @@ var JsPmLoader = function (_Component) {
             });
             global.System.import(_this2.props.module).then(function (Component) {
                var c = _this2._parseComponent(Component);
-               console.log(_this2.props.module);
                if (c.Component) {
                   if (_typeof(c.Component) !== 'object') {
                      _this2.setState({
