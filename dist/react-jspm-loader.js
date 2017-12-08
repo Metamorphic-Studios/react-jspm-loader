@@ -136,7 +136,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          transpiler: 'plugin-babel',
 	          paths: {
 	            'react-cdn': 'https://fb.me/react-15.1.0.min.js',
-	            'unpkg:*': '//unpkg.com/*'
+	            'unpkg:*': '//unpkg.com/*',
+	            'npm:react': 'https://fb.me/react-15.1.0.min.js'
 	          },
 	          meta: {}
 	        });
