@@ -114,8 +114,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // async load of remote UMD component
 	      (0, _scriptjs2.default)('https://jspm.io/system.js', function () {
 	        global.System.config({
-	          transpiler: 'plugin-babel',
 	          babelOptions: {
+	            blacklist: [],
 	            sourceMaps: false,
 	            stage0: true,
 	            react: true,
@@ -132,6 +132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'systemjs-babel-build': 'unpkg:systemjs-plugin-babel@0/systemjs-babel-browser.js',
 	            'plugin-babel-remove-props': 'unpkg:babel-plugin-transform-react-remove-prop-types'
 	          },
+	          transpiler: 'plugin-babel',
 	          paths: {
 	            'react-cdn': 'https://fb.me/react-15.1.0.min.js',
 	            'unpkg:*': '//unpkg.com/*'

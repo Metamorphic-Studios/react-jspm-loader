@@ -17,8 +17,8 @@ class JsPmLoader extends Component {
     // async load of remote UMD component
     script('https://jspm.io/system.js', () => {
       global.System.config({
-         transpiler: 'plugin-babel',
          babelOptions: {
+            blacklist: [],
             sourceMaps: false,
             stage0: true,
             react: true,
@@ -37,6 +37,7 @@ class JsPmLoader extends Component {
             'systemjs-babel-build': 'unpkg:systemjs-plugin-babel@0/systemjs-babel-browser.js',
             'plugin-babel-remove-props': 'unpkg:babel-plugin-transform-react-remove-prop-types'
          },
+         transpiler: 'plugin-babel',
          paths: {
             'react-cdn': 'https://fb.me/react-15.1.0.min.js',
             'unpkg:*' : '//unpkg.com/*',
