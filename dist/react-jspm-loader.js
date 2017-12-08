@@ -140,6 +140,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         // async load of remote UMD component
 	         (0, _scriptjs2.default)('https://jspm.io/system.js', function () {
 	            global.System.config({
+	               defaultExtensions: false,
 	               baseURL: 'https://npm.jspm.io',
 	               babelOptions: {
 	                  blacklist: [],
@@ -149,7 +150,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  plugins: ['plugin-babel-remove-props']
 	               },
 	               packages: {
-	                  'https://npm.jspm.io/': { defaultExtension: true },
+	                  'https://npm.jspm.io/': { defaultExtension: false },
 	                  'https://cdn.rawgit.com/*': { defaultExtension: false },
 	                  'https://unpkg.com/': { defaultExtension: false }
 	               },

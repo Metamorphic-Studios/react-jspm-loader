@@ -42,6 +42,7 @@ class JsPmLoader extends Component {
     // async load of remote UMD component
     script('https://jspm.io/system.js', () => {
       global.System.config({
+         defaultExtensions: false,
          baseURL: 'https://npm.jspm.io',
          babelOptions: {
             blacklist: [],
@@ -53,7 +54,7 @@ class JsPmLoader extends Component {
             ]
          },
          packages: {
-            'https://npm.jspm.io/' : { defaultExtension: true },
+            'https://npm.jspm.io/' : { defaultExtension: false },
             'https://cdn.rawgit.com/*' : { defaultExtension: false },
             'https://unpkg.com/' : { defaultExtension: false },
          },
