@@ -54,7 +54,7 @@ var JsPmLoader = function (_Component) {
     key: '_parseComponent',
     value: function _parseComponent(Component) {
       //Identify component props
-      var props = {};
+      var props = null;
       var err = null;
       var cmp = null;
       if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object' && Component.default) {
@@ -62,7 +62,7 @@ var JsPmLoader = function (_Component) {
         props = cmp.propTypes;
       } else if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object') {
         //Submodules
-        console.log(Component);
+        cmp = Component;
       } else {
         cmp = Component;
         props = cmp.propTypes;

@@ -15,7 +15,7 @@ class JsPmLoader extends Component {
 
    _parseComponent(Component){
       //Identify component props
-		var props = {};
+		var props = null;
 		var err = null;
 		var cmp = null;
 		if(typeof(Component) == 'object' && Component.default){
@@ -23,7 +23,7 @@ class JsPmLoader extends Component {
 			props = cmp.propTypes;
 		}else if(typeof(Component) == 'object'){
 			//Submodules
-			console.log(Component);  
+			cmp = Component;          
 		}else{
 			cmp = Component;
 			props = cmp.propTypes;
