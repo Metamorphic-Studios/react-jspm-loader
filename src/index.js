@@ -69,7 +69,8 @@ class JsPmLoader extends Component {
             'npm:prop-types*': 'https://unpkg.com/prop-types/prop-types.min.js',
             'react-cdn': 'https://unpkg.com/react@15.5.0/dist/react.min.js',
             'unpkg:*' : '//unpkg.com/*',
-            'npm:react*': 'https://unpkg.com/react@15.5.0/dist/react.min.js',
+            'npm:react': 'https://unpkg.com/react@15.5.0/dist/react.min.js',
+            'npm:react@*': 'https://unpkg.com/react@15.5.0/dist/react.min.js',
             'https://registry.jspm.io/*':  '//npm.jspm.io/*',
             'npm:react@16.0eta.*': 'https://unpkg.com/react@16.2.0/cjs/react.production.min.js'
          },
