@@ -16,7 +16,6 @@ class JsPmLoader extends Component {
   componentDidMount() {
     // async load of remote UMD component
     script('https://jspm.io/system.js', () => {
-       console.log(global.System);
       global.System.config({
          babelOptions: {
             blacklist: [],
@@ -48,7 +47,7 @@ class JsPmLoader extends Component {
          } 
       });
       global.System.import(this.props.module).then(Component => {
-         console.log(Component);
+         console.log(typeof(Component), Component.props, Component);
         this.setState({
           error: null,
           Component: Component
