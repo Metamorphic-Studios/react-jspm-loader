@@ -109,7 +109,7 @@ var JsPmLoader = function (_Component) {
           }
 
           for (var k in props) {
-            console.log(k, props[k].isRequired());
+            console.log(k, props[k]);
           }
         }).catch(function (e) {
           var message = 'Error loading ' + _this2.props.module + ' : ' + e;

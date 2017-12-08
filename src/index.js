@@ -69,7 +69,7 @@ class JsPmLoader extends Component {
          }
 
          for(var k in props){
-            console.log(k, props[k].isRequired());
+            console.log(k, props[k]);
          }
       }).catch(e => {
         const message = `Error loading ${this.props.module} : ${e}`;
