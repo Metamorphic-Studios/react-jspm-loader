@@ -57,6 +57,7 @@ var JsPmLoader = function (_Component) {
 
       // async load of remote UMD component
       (0, _scriptjs2.default)('https://jspm.io/system.js', function () {
+        console.log(global.System);
         global.System.config({
           babelOptions: {
             blacklist: [],

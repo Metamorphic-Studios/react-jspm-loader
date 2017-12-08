@@ -16,6 +16,7 @@ class JsPmLoader extends Component {
   componentDidMount() {
     // async load of remote UMD component
     script('https://jspm.io/system.js', () => {
+       console.log(global.System);
       global.System.config({
          babelOptions: {
             blacklist: [],
