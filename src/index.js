@@ -48,10 +48,12 @@ class JsPmLoader extends Component {
          } 
       });
       global.System.import(this.props.module).then(Component => {
-         if(typeof(Component) == 'object'){
-            for(var k in Component){
-               console.log("Component key ", k);
-            }
+         if(typeof(Component) == 'object' && Component.default){
+            this.setState({
+               error: null,
+               Component: Component.default
+            });
+            console.log(Component.default);
          }else{
            this.setState({
              error: null,

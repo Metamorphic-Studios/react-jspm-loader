@@ -88,10 +88,12 @@ var JsPmLoader = function (_Component) {
           meta: {}
         });
         global.System.import(_this2.props.module).then(function (Component) {
-          if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object') {
-            for (var k in Component) {
-              console.log("Component key ", k);
-            }
+          if ((typeof Component === 'undefined' ? 'undefined' : _typeof(Component)) == 'object' && Component.default) {
+            _this2.setState({
+              error: null,
+              Component: Component.default
+            });
+            console.log(Component.default);
           } else {
             _this2.setState({
               error: null,
