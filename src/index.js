@@ -21,7 +21,10 @@ class JsPmLoader extends Component {
          babelOptions: {
             sourceMaps: false,
             stage0: true,
-            react: true
+            react: true,
+            plugins: [
+               'plugin-babel-remove-props'
+            ]
          },
          packages: {
              'https://npm.jspm.io/' : { defaultExtension: 'js' },
@@ -31,7 +34,8 @@ class JsPmLoader extends Component {
          map: {
             "react": "react-cdn",
             'plugin-babel': 'unpkg:systemjs-plugin-babel@0/plugin-babel.js',
-            'systemjs-babel-build': 'unpkg:systemjs-plugin-babel@0/systemjs-babel-browser.js'
+            'systemjs-babel-build': 'unpkg:systemjs-plugin-babel@0/systemjs-babel-browser.js',
+            'plugin-babel-remove-props': 'unpkg:babel-plugin-transform-react-remove-prop-types'
          },
          paths: {
             'react-cdn': 'https://fb.me/react-15.1.0.min.js',
